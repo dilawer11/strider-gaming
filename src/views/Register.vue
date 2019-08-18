@@ -22,26 +22,27 @@
                          <input type="text" class="form-control" v-model="platformID"  placeholder="Platform ID (PSN/Live) Optional">
                         </div>
                         <div class="form-group">
-                         <input type="text" class="form-control" v-model="contactNumber"  placeholder="Contact Number">
+                         <input type="text" class="form-control" v-model="contactNumber"  placeholder="Contact Number e.g (03##-#######)">
                         </div>
                         <div class="form-group">
                             <select class="custom-select" v-model="controlType">
                                 <option selected disabled>Control Type</option>
                                 <option value="kbm">Keyboard and Mouse</option>
                                 <option value="con">Controller</option>
+                                <option value="mob">Mobile</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" v-model="password" placeholder="Password">
+                            <input type="password" class="form-control" v-model="password" placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" v-model="confirmPassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control" v-model="confirmPassword" placeholder="Confirm Password">
                         </div>
                         <div class="form-group form-check text-dark">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Do you agree to our terms and conditions</label>
+                            <input type="checkbox" class="form-check-input" v-model="terms">
+                            <label class="form-check-label" >Do you agree to our terms and conditions</label>
                         </div>
-                   
+                        <div v-if="feedback" class="p-3 mb-2 bg-danger text-white">{{feedback}}</div>
                         <button type="submit" class="btn btn-primary">Create Account</button>
                         <router-link to="/login"><button class="btn">Login</button></router-link>
                     </form>
@@ -54,6 +55,8 @@
 
 <script>
 import db from '@/firebase/init.js'
+import firebase from 'firebase'
+import validation from '@/jsfiles/validation.js'
 export default {
     name: 'register',
     data: () =>{
@@ -67,11 +70,45 @@ export default {
             controlType: 'Control Type',
             password : null,
             confirmPassword: null,
+            feedback: null,
+            terms: false,
         }
     },
     methods:{
         submit() {
-            console.log(this.email,this.password,this.firstName,this.lastName, this.controlType)
+            this.feedback = null;
+            let userProfile = {
+                name: this.firstName + ' ' + this.lastName,
+                accountBalance: 0,
+                registeredTournaments:[],
+                epicID: this.epicID,
+                tournamentsPlayed: 0,
+                tournamentsWin: 0,
+                eliminations: 0,
+                matchesWon: 0,
+                notifications: [],
+                email: this.email,
+                platformID: this.platformID,
+                contactNumber: this.contactNumber,
+                controlType: this.controlType,
+            }
+            this.feedback = validation.validateUserInformation(userProfile,this.terms,this.password,this.confirmPassword)
+            if(!this.feedback){
+                   firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(resp => {
+                    const user = firebase.auth().currentUser;
+                    if(user){
+                        db.collection('users').doc(user.uid).set(userProfile)
+                        firebase.auth().signOut().then(res=>{
+                            this.$router.push({name: 'login'})
+                        })
+                            
+                    } else{
+                        console.log("Error can't find user")
+                    }
+                }).catch(err => {
+                    this.feedback = err.message;
+                })
+            }
         }
     }
 }
