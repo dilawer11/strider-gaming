@@ -1,3 +1,5 @@
+import { platform } from "os";
+
 // fill this file with validation
 export default{
     validatePartners: (numTeam,partners,participants, terms)=> {
@@ -18,5 +20,30 @@ export default{
             })
         }
         return objection;
+    },
+    validateUserInformation(userProfile,terms,password,confirmPassword){
+        let objection = null;
+        var emailRegex = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
+        if(userProfile.name.length<4){
+            objection = 'Name Must Be Atleast 4 Characters Long'
+        } else if(!emailRegex.test(userProfile.email)){
+            objection = 'Incorrect Email Type Entered'
+        } 
+        //Length Checks
+        if(userProfile.platformID.length>50){
+            objection = 'Platform ID Too Large Max Characters: 50'
+        } else if(userProfile.name.length>50){
+            objection = 'Name Too Large Max Characters: 50'
+        } else if(userProfile.contactNumber.length!=12){
+            objection = 'Contact Number Should Be 12 Characters e.g (03##-#######)'
+        } else if (!terms){
+            objection = 'Please Check The Agree To Terms Box'
+        } else if (password.length<6){
+            objection = 'Password Must Be Atleast 6 Characters'
+        } else if (password != confirmPassword){
+            objection = "Passwords Don't Match" 
+        }
+        return objection
     }
+
 }
