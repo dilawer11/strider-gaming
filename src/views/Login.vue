@@ -16,7 +16,7 @@
                 <div class="form-group form-check">
                   <a class="form-check-label text-dark" href="#" >Forgot Password?</a>
                 </div>
-                <div v-if="wrongPassword" class="p-3 mb-2 bg-danger text-white">Wrong Username/Password</div>
+                <div v-if="feedback" class="p-3 mb-2 bg-danger text-white">{{feedback}}</div>
                
                 <button type="submit" class="btn btn-primary">Login</button>
                 <router-link to="/register"><button class="btn">Register</button></router-link>
@@ -30,19 +30,26 @@
 </template>
 
 <script>
+import firebase from 'firebase'
   export default {
     name: 'login',
-    props: {
-      source: String,
-    },
     data: () => ({
       wrongPassword: false,
       password: null,
       email: null,
+      feedback: null,
     }),
     methods:{
-      submit(){
-        console.log(this.email,this.password)
+      async submit(){
+        this.feedback = null;
+        firebase.auth().signInWithEmailAndPassword(this.email,this.password).then(response=>{
+          this.$router.push({name: 'userpage'})
+        }).catch(err=>{
+          this.feedback = err.message
+        })
+
+        
+        
       }
     }
   }
