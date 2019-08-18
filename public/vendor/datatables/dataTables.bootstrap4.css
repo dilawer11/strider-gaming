@@ -5,6 +5,7 @@ table.dataTable {
   max-width: none !important;
   border-collapse: separate !important;
   border-spacing: 0;
+  
 }
 table.dataTable td,
 table.dataTable th {
@@ -24,6 +25,7 @@ div.dataTables_wrapper div.dataTables_length label {
   font-weight: normal;
   text-align: left;
   white-space: nowrap;
+  color: #000;
 }
 div.dataTables_wrapper div.dataTables_length select {
   width: auto;
@@ -36,6 +38,7 @@ div.dataTables_wrapper div.dataTables_filter label {
   font-weight: normal;
   white-space: nowrap;
   text-align: left;
+  color: #000;
 }
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;
@@ -45,6 +48,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 div.dataTables_wrapper div.dataTables_info {
   padding-top: 0.85em;
   white-space: nowrap;
+  color: #000;
 }
 div.dataTables_wrapper div.dataTables_paginate {
   margin: 0;
