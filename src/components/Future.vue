@@ -21,7 +21,7 @@
                         <button class="button" data-toggle="modal" data-target="#modal1">View Details</button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="lead-programmer" aria-hidden="true">
+                    <!-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="lead-programmer" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-4">
                     <div class="job-card">
                         <h3 class="colored">PLAYER RANKS</h3>
@@ -69,7 +69,7 @@
                         <button class="button" data-toggle="modal" data-target="#modal2">View Details</button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade " id="modal2" tabindex="-1" role="dialog" aria-labelledby="level-designer" aria-hidden="true">
+                    <!-- <div class="modal fade " id="modal2" tabindex="-1" role="dialog" aria-labelledby="level-designer" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-4">
                     <div class="job-card">
                         <h3 class="colored">NATIONAL CUP</h3>
@@ -117,7 +117,7 @@
                         <button class="button" data-toggle="modal" data-target="#modal3">View Details</button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade " id="modal3" tabindex="-1" role="dialog" aria-labelledby="ai-engineer" aria-hidden="true">
+                    <!-- <div class="modal fade " id="modal3" tabindex="-1" role="dialog" aria-labelledby="ai-engineer" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -158,18 +158,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2 class="short-hr-center">OUR NEWSLETTER</h2>
-                    <p>Stay up to date with the team and our products by subscribing to our newsletter.</p>
-                    <form id="newsletter" data-toggle="validator">
-                        <input type="email" id="emailsign" placeholder="Your email adress">
-                        <button type="submit" id="form-signup" class="button">SUBSCRIBE</button>
-                        <div id="msgSignup" class="h3 text-center hidden"></div>
-                    </form>
-                </div>
             </div> -->
+        
         </div>
 </template>
 
