@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index home">
      <div id="hero-section" class="small-margin">
         <div id="particles-web"></div>
         <div class="row hero-unit">
@@ -49,5 +49,3 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-</style>

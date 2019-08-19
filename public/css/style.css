@@ -44,6 +44,7 @@ Primary Color: #E48632;
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500'); /* Raleway Font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans'); /* Open Sans Font */
+@import url(line-icons.css);
 @font-face {
     font-family: 'Anurati';
     src: url('../fonts/Anurati-Regular.otf');
@@ -166,6 +167,9 @@ ul {
 .large-margin {
 	margin-bottom: 12em; /* 192px */
 }
+
+
+
 /* -<hr>- */
 hr {
     width: 100%;

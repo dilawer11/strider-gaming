@@ -60,8 +60,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> -->
+                    </div>-->
+                </div> 
                 <div class="col-md-4">
                     <div class="job-card">
                         <h3 class="colored">PLAYER RANKS</h3>
@@ -108,8 +108,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> -->
+                    </div>-->
+                </div> 
                 <div class="col-md-4">
                     <div class="job-card">
                         <h3 class="colored">NATIONAL CUP</h3>
@@ -156,9 +156,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
-            </div> -->
+            </div> 
         
         </div>
 </template>

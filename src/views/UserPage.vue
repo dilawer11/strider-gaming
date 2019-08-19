@@ -25,34 +25,31 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
+          <span v-if="userProfile.notifications.length" class="badge badge-danger">{{userProfile.notifications.length}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <span v-if="!userProfile.notifications.length" class="dropdown-item">No Notifications</span>
+          <span v-for="(i,index) in userProfile.notifications" :key="index" class="dropdown-item">{{i}}</span>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
       </li>
-      <li class="nav-item dropdown no-arrow mx-1">
+      <!-- <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
+          <span class="badge badge-danger">{{userProfile.messages.length}}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <span v-for="(i,index) in userProfile.messages" :key="index" class="dropdown-item">{{i}}</span> 
         </div>
-      </li>
+      </li> -->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
+          <a class="dropdown-item" href="#">{{userProfile.name}}</a>
+          <!-- <a class="dropdown-item" href="#">Activity Log</a> -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
@@ -115,15 +112,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Are You Sure You Want To Logout?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-primary" data-dismiss="modal" @click="logout()">Logout</button>
         </div>
       </div>
     </div>
@@ -138,12 +135,24 @@
 <script>
 import PlayerStats from '@/components/PlayerStats.vue'
 import AccountInfo from '@/components/AccountInfo.vue'
+import firebase from 'firebase'
+import { mapState, mapGetters } from 'vuex'
 export default {
     name: 'UserPage',
     data(){
         return{
             activeSideBarItem: 'Overview',
         }
+    },
+    computed:{
+      ...mapState([
+        'userProfile',
+        'tournaments'
+      ]),
+      ...mapGetters([
+        'upcomingRegisteredTournaments',
+        'registeredTournaments'
+      ])
     },
     components:{
         PlayerStats,
@@ -152,10 +161,19 @@ export default {
     methods:{
         toggleItemSideBar(e){
             this.activeSideBarItem = e
+        },
+        logout(){
+          firebase.auth().signOut()
+          this.$router.push({name: 'login'})
+
         }
-    }
+    },
+   
+  
 }
 </script>
+
+
 
 <style scoped>
 :root {
@@ -5059,7 +5077,7 @@ input[type="button"].btn-block {
 
 .badge {
   display: inline-block;
-  padding: 0.25em 0.4em;
+  padding: 0.25em 0.4em; 
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
@@ -10453,7 +10471,6 @@ body {
 
 .navbar-nav .nav-item .nav-link .badge {
   position: absolute;
-  margin-left: 0.75rem;
   top: 0.3rem;
   font-weight: 400;
   font-size: 0.5rem;

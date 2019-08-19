@@ -14,17 +14,18 @@
                 <!-- Navigation Links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
+                      
                         <li class="nav-item">
                             <a class="nav-link" href="#games">Upcoming Tournaments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Team</a>
+                            <a class="nav-link" href="#team">Top Players</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#careers">Log in</a>
+                        <li v-if="userProfile.epicID" class="nav-item">
+                            <router-link to="/userpage"><span class="nav-link">{{userProfile.epicID}}</span></router-link>
+                        </li>
+                         <li v-else class="nav-item">
+                            <router-link to="/userpage"><span class="nav-link">Login</span></router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
@@ -37,11 +38,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-
+    computed:{
+        ...mapState([
+            'userProfile',
+        ])
+    }
 }
 </script>
 
-<style>
-
-</style>

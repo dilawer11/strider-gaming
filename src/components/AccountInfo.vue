@@ -20,7 +20,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-2"><h2>450</h2></div>
+                <div class="mr-2"><h2>{{userProfile.accountBalance}}</h2></div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">Account Balance</span>
@@ -50,26 +50,14 @@
         <div class="card mb-3">
           <div class="card-header" style="color:black;">
             <i class="fas fa-chart-area"></i>
-            Progress Bar</div>
+            Tournament Bracket
+          </div>
           <div class="card-body" style="color:black;">
-            <p> Rank Up </p>
-            <div class="progress">
-              
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
             
-            <p> Next Move</p>
-            <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <p> Being Cool </p>
-            <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <br>
+            <img src="images/placeholder.jpg"> <!-- TODO: Change this to latest tournament registered's bracket-->
 
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
         </div>
 
         <!-- DataTables Example -->
@@ -83,7 +71,7 @@
                 <thead>
                   <tr>
                     <th>Tournament Name</th>
-                    <th>Expected Partner</th>
+                    <th>Payment Made?</th>
                     <th>Registration Fees</th>
                     <th>Time</th>
                     <th>Game</th>
@@ -93,7 +81,7 @@
                 <tfoot>
                   <tr>
                     <th>Tournament Name</th>
-                    <th>Expected Partner</th>
+                    <th>Payment Made?</th>
                     <th>Registration Fees</th>
                     <th>Time</th>
                     <th>Game</th>
@@ -101,19 +89,20 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                  <tr>
-                    <td>FORTNITE FRIDAY TEST # 0</td>
-                    <td>Tackled Monkey 2</td>
-                    <td>Rs.300</td>
-                    <td>5:00pm</td>
-                    <td>Fortnite</td>
-                    <td>24/6/1998</td>
+                  <tr v-for="(tournament,i) in upcomingRegisteredTournaments" :key="i">
+                    <td>{{tournament.name}}</td>
+                    <td>{{tournament.paymentStatus}}</td>
+                    <td>Rs.{{tournament.fee}}</td>
+                    <td>{{tournament.date.getHours()}} pm</td>
+                    <!-- <td>{{tournament.date.getHours()}}:{{tournament.date.getMinutes()}} pm</td> -->
+                    <td>{{tournament.game}}</td>
+                    <td>{{tournament.date.getDate()}}/{{tournament.date.getMonth()}}/{{tournament.date.getYear()}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
         </div>
 
       </div>
@@ -125,8 +114,30 @@
 </template>
 
 <script>
+import { mapGetters,mapState } from 'vuex' 
 export default {
-    name: 'accountinfo'
+    name: 'accountinfo',
+   
+    data(){
+      return{
+      }
+    },
+    computed:{
+      ...mapGetters([
+        'upcomingRegisteredTournaments'
+      ]),
+      ...mapState([
+        'userProfile'
+      ]),
+      progressBars(){
+        //return values for progress bars
+        return{
+          bar1: 'width: '+ 25 +'%',
+          bar2: 'width: '+ 50 +'%',
+          bar3: 'width: '+ 100 +'%',
+        }
+      }
+    }
 }
 </script>
 

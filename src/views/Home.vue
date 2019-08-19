@@ -42,6 +42,16 @@ export default {
       })
       this.setTournaments({tournaments: dbTournaments})
     })
+    db.collection('users').get().then(snapshot => {
+      let users = [];
+      snapshot.forEach(doc=>{
+        let temp = {}
+        temp.epicID = doc.data().epicID;
+        temp.id = doc.id;
+        users.push(temp);
+      })
+      this.setUsers({users: users})
+    })
   },
   computed:{
     ...mapState([
@@ -50,7 +60,8 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setTournaments'
+      'setTournaments',
+      'setUsers'
     ])
   },
   // beforeRouteEnter (to, from, next) {
