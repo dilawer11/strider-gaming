@@ -99,6 +99,7 @@ export default {
                     if(user){
                         db.collection('users').doc(user.uid).set(userProfile).then(resp =>{
                             firebase.auth().signOut().then(res=>{
+                                alert("You Have Been Successfully Registered. Please Login to Continue");
                                 this.$router.push({name: 'login'})
                             })
                         })
