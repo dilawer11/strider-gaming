@@ -67,6 +67,7 @@ export default new Vuex.Store({
     },
     setUserProfile: (state,payload) => {
       state.userProfile=payload.userProfile;
+      state.userProfile.registeredTournaments.forEach(tournament=>tournament.date = new Date(tournament.date.seconds * 1000))
     },
     setUsers: (state,payload) => {
       state.users= payload.users;

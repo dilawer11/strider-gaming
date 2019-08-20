@@ -14,7 +14,7 @@
         <!-- Icon Cards-->
         <div class="row">
       
-          <div class="col-xl-12 col-sm-12 mb-12">
+          <div class="col-xl-12  col-8">
             <div class="card text-white bg-success o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
@@ -93,7 +93,7 @@
                     <td>{{tournament.name}}</td>
                     <td>{{paymentStatusConvert(tournament.paymentStatus)}}</td>
                     <td>Rs.{{tournament.fee}}</td>
-                    <td>{{tournament.date.getHours()}} :00</td>
+                    <td>{{tournament.date.getHours()}}:00</td>
                     <!-- <td>{{tournament.date.getHours()}}:{{tournament.date.getMinutes()}} pm</td> -->
                     <td>{{tournament.game}}</td>
                     <td>{{tournament.date.getDate()}}/{{tournament.date.getMonth()}}/{{tournament.date.getFullYear()}}</td>
@@ -132,6 +132,7 @@ export default {
       }
     },
     created(){
+
     },
     computed:{
       ...mapGetters([
