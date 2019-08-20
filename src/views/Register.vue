@@ -1,8 +1,9 @@
 <template>
     <div class="register">
-        <div class="row h-100">
-            <div class="col-sm-12">
-                <div class="card text-center card-block w-25 mx-auto">
+        <div class="row">
+            <div class="col-1 col-md-4"></div>
+            <div class="col-10 col-md-4">
+                <div class="card text-center card-block mx-auto">
                 <div class="card-body">
                     <h5 class="card-title text-dark">Register</h5>
                     <form @submit.prevent="submit()">
@@ -49,6 +50,7 @@
                 </div>
                 </div>
             </div>
+            <div class= "col-1 col-md-4"></div>
         </div>
     </div>
 </template>
