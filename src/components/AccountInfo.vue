@@ -91,9 +91,9 @@
                 <tbody>
                   <tr v-for="(tournament,i) in upcomingRegisteredTournaments" :key="i">
                     <td>{{tournament.name}}</td>
-                    <td>{{tournament.paymentStatus}}</td>
+                    <td>{{paymentStatusConvert(tournament.paymentStatus)}}</td>
                     <td>Rs.{{tournament.fee}}</td>
-                    <td>{{tournament.date.getHours()}} pm</td>
+                    <td>{{tournament.date.getHours()}} :00</td>
                     <!-- <td>{{tournament.date.getHours()}}:{{tournament.date.getMinutes()}} pm</td> -->
                     <td>{{tournament.game}}</td>
                     <td>{{tournament.date.getDate()}}/{{tournament.date.getMonth()}}/{{tournament.date.getYear()}}</td>
@@ -120,6 +120,15 @@ export default {
    
     data(){
       return{
+      }
+    },
+    methods:{
+      paymentStatusConvert(paymentStatus){
+        if(paymentStatus){
+          return "Paid"
+        } else{
+          return "Not Paid"
+        }
       }
     },
     computed:{
