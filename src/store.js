@@ -30,7 +30,7 @@ export default new Vuex.Store({
       date: new Date(),
       participants: [],
       ruleFile: '#',
-      thumbnail: '#',
+      thumbnail: 'images/loading.jpeg',
     },
     { 
       name: 'Loading...',
