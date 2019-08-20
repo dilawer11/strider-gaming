@@ -87,55 +87,55 @@
             <div class="grid-gallery">
                 <div class="row">
                   <div class="col-md-4 gallery-item">
-                        <a href="images/img2.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
     
                     
                    <div class="col-md-4 gallery-item">
-                        <a href="images/img1.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                     <div class="col-md-4 gallery-item">
-                        <a href="images/img3.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" data-src="images/img3.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" data-src="images/loadng.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 gallery-item">
-                        <a href="images/img4.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" data-src="images/img4.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" data-src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                     <div class="col-md-4 gallery-item">
-                        <a href="images/img5.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" data-src="images/img5.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" data-src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                     <div class="col-md-4 gallery-item">
-                        <a href="images/img6.jpg" data-lightbox="studio_gallery">
+                        <a href="images/loading.jpeg" data-lightbox="studio_gallery">
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/placeholder.jpg" data-src="images/img6.jpg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" data-src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                 </div>
