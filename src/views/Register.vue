@@ -94,16 +94,20 @@ export default {
             }
             this.feedback = validation.validateUserInformation(userProfile,this.terms,this.password,this.confirmPassword)
             if(!this.feedback){
-                   firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(resp => {
+                    firebase.auth().createUserWithEmailAndPassword(this.email,this.password).then(resp => {
                     const user = firebase.auth().currentUser;
                     if(user){
-                        db.collection('users').doc(user.uid).set(userProfile)
-                        firebase.auth().signOut().then(res=>{
-                            this.$router.push({name: 'login'})
+                        db.collection('users').doc(user.uid).set(userProfile).then(resp =>{
+                            firebase.auth().signOut().then(res=>{
+                                this.$router.push({name: 'login'})
+                            })
                         })
+                        
+                       
                             
                     } else{
-                        console.log("Error can't find user")
+                        this.feedback = "Error Can't Find User"
+                        console.log(this.feedback);
                     }
                 }).catch(err => {
                     this.feedback = err.message;

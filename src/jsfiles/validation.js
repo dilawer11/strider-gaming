@@ -23,6 +23,9 @@ export default{
     },
     validateUserInformation(userProfile,terms,password,confirmPassword){
         let objection = null;
+        if(!userProfile){
+            objection = 'Something went wrong please contact on the numbers provided'
+        }
         var emailRegex = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
         if(userProfile.name.length<4){
             objection = 'Name Must Be Atleast 4 Characters Long'
@@ -30,7 +33,7 @@ export default{
             objection = 'Incorrect Email Type Entered'
         } 
         //Length Checks
-        if(userProfile.platformID.length>50){
+        if(userProfile.platformID!=null && userProfile.platformID.length>50){
             objection = 'Platform ID Too Large Max Characters: 50'
         } else if(userProfile.name.length>50){
             objection = 'Name Too Large Max Characters: 50'
