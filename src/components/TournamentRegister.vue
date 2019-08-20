@@ -42,6 +42,7 @@
                             <label class="form-check-label text-dark" for="exampleCheck1">Agree to tournament rules</label>
                         </div>
                         <div v-if="feedback" class="p-3 mb-2 bg-danger text-white">{{feedback}}</div>
+                        <div v-if="positiveFeedback" class="p-3 mb-2 bg-danger text-white">{{positiveFeedback}}</div>
                         <button type="submit" class="btn btn-primary">Confirm Register</button>
                     </form>
                 </div>
@@ -71,11 +72,14 @@ export default {
         feedback: null,
         terms: false,
         user: null,
+        positiveFeedback: null
     }),
     created(){
     },
     methods:{
         async submitRegister(){
+            this.feedback = null;
+            this.positiveFeedback = null;
             const snapshot = await db.collection('tournaments').get()
             if(snapshot.empty){
                 this.feedback= 'No Upcoming Tournaments'
@@ -86,7 +90,6 @@ export default {
                     temp.id = doc.id;
                     dbTournaments.push(temp);
                 })
-                console.log(dbTournaments)
                 this.setTournaments({tournaments: dbTournaments});
                 this.players[0]=this.userProfile.epicID;           
                 this.feedback = validation.validatePartners(this.tournamentDetails.numberTeam,this.players,this.tournamentDetails.participants,this.terms);
@@ -108,6 +111,7 @@ export default {
                     // const bothCalls = [await tournamentUpdate, await userProfileUpdate];
                     this.registerAllTeam(this.players,newTournament);
                     const bothCalls = await tournamentUpdate
+                    this.positiveFeedback = "Registration Sucessful" 
                 }
             }                    
  
@@ -121,13 +125,12 @@ export default {
                             let temp = doc.data();
                             temp.registeredTournaments.push(newTournament)
                             db.collection('users').doc(user.id).update({
-                                registerTournaments : temp.registeredTournaments
+                                registeredTournaments : temp.registeredTournaments
                             }).then(resp=>{
                                 countDone = countDone + 1;
                             }).catch(err=>{
                                 this.feedback = err.message
                             })
-                            console.log(doc)
                         }).catch(err=>{
                             this.feedback=err.message
                         })

@@ -55,7 +55,7 @@
 
 <script>
 import db from '@/firebase/init.js'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import validation from '@/jsfiles/validation.js'
 export default {
     name: 'register',

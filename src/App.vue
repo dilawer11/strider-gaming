@@ -10,7 +10,7 @@
 <script>
 import db from '@/firebase/init'
 import { mapMutations, mapState } from 'vuex'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 export default {
   created(){
     firebase.auth().onAuthStateChanged(user => {

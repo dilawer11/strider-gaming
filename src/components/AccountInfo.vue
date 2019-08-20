@@ -96,7 +96,7 @@
                     <td>{{tournament.date.getHours()}} :00</td>
                     <!-- <td>{{tournament.date.getHours()}}:{{tournament.date.getMinutes()}} pm</td> -->
                     <td>{{tournament.game}}</td>
-                    <td>{{tournament.date.getDate()}}/{{tournament.date.getMonth()}}/{{tournament.date.getYear()}}</td>
+                    <td>{{tournament.date.getDate()}}/{{tournament.date.getMonth()}}/{{tournament.date.getFullYear()}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -131,12 +131,14 @@ export default {
         }
       }
     },
+    created(){
+    },
     computed:{
       ...mapGetters([
         'upcomingRegisteredTournaments'
       ]),
       ...mapState([
-        'userProfile'
+        'userProfile',
       ]),
       progressBars(){
         //return values for progress bars

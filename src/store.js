@@ -96,7 +96,7 @@ export default new Vuex.Store({
     tournamentsDone: state =>{
       return state.userProfile.registeredTournaments.filter(tournament => tournament.date < state.currentDate);
     },
-    upcomingRegisteredTournaments: state =>{
+    upcomingRegisteredTournaments: state => {
       return state.userProfile.registeredTournaments.filter(tournament => tournament.date >= state.currentDate);
     },
   },

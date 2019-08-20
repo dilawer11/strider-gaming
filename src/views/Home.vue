@@ -55,7 +55,8 @@ export default {
   },
   computed:{
     ...mapState([
-      'tournaments'
+      'tournaments',
+
     ])
   },
   methods: {
