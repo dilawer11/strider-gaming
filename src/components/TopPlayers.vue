@@ -14,7 +14,7 @@
                 <div id="full-row" class="row text-center">
                     <div class="col-md-3 team-card">
                         <figure>
-                            <img src="images/mostTournamentWins.jpeg" data-src="images/team1.jpg" class="img-fluid b-lazy" alt="teammember">
+                            <img src="images/mostTournamentWins.jpeg" data-src="images/mostTournamentWins.jpeg" class="img-fluid b-lazy" alt="teammember">
                             <!-- <figcaption class="team-caption">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                                 <hr class="hr-short">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-3 team-card">
                         <figure>
-                            <img src="images/highestRank.jpeg" data-src="images/team2.jpg" class="img-fluid b-lazy" alt="teammember">
+                            <img src="images/highestRank.jpeg" data-src="images/highestRank.jpeg" class="img-fluid b-lazy" alt="teammember">
                             <!-- <figcaption class="team-caption">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                                 <hr class="hr-short">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-md-3 team-card">
                         <figure>
-                            <img src="images/mostKills.jpeg" data-src="images/team3.jpg" class="img-fluid b-lazy" alt="teammember">
+                            <img src="images/mostKills.jpeg" data-src="images/mostKills.jpeg" class="img-fluid b-lazy" alt="teammember">
                             <!-- <figcaption class="team-caption">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                                 <hr class="hr-short">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-md-3 team-card">
                         <figure>
-                            <img src="images/mostMatchWins.jpeg" data-src="images/team4.jpg" class="img-fluid b-lazy" alt="teammember">
+                            <img src="images/mostMatchWins.jpeg" data-src="images/mostMatchWins.jpeg" class="img-fluid b-lazy" alt="teammember">
                             <!-- <figcaption class="team-caption">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                                 <hr class="hr-short">
@@ -109,7 +109,7 @@
                             <div class="overlay gallery">
                                 <i class="fa fa-picture-o fa-3x"></i>
                             </div>
-                            <img src="images/loading.jpeg" data-src="images/loadng.jpeg" class="img-fluid b-lazy" alt="">
+                            <img src="images/loading.jpeg" data-src="images/loading.jpeg" class="img-fluid b-lazy" alt="">
                         </a>
                     </div>
                 </div>
