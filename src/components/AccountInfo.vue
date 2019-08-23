@@ -18,7 +18,7 @@
             <div class="card text-white bg-success o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
+                  <i class="fas fa-fw fa-credit-card"></i>
                 </div>
                 <div class="mr-2"><h2>{{userProfile.accountBalance}}</h2></div>
               </div>

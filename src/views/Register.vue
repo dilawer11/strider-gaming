@@ -20,6 +20,9 @@
                          <input type="text" class="form-control" v-model="epicID"  placeholder="Epic ID">
                         </div>
                         <div class="form-group">
+                         <input type="text" class="form-control" v-model="discordID"  placeholder="Discord ID">
+                        </div>
+                        <div class="form-group">
                          <input type="text" class="form-control" v-model="platformID"  placeholder="Platform ID (PSN/Live) Optional">
                         </div>
                         <div class="form-group">
@@ -67,6 +70,7 @@ export default {
             lastName : null,
             email : null,
             epicID : null,
+            discordID : null,
             platformID: null,
             contactNumber: null,
             controlType: 'Control Type',
@@ -91,8 +95,10 @@ export default {
                 notifications: [],
                 email: this.email,
                 platformID: this.platformID,
+                discordID: this.discordID,
                 contactNumber: this.contactNumber,
                 controlType: this.controlType,
+                rank : 0,
             }
             this.feedback = validation.validateUserInformation(userProfile,this.terms,this.password,this.confirmPassword)
             if(!this.feedback){

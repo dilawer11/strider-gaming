@@ -17,7 +17,7 @@
             <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
+                  <i class="fas fa-fw fa-child"></i>
                 </div>
                 <div class="mr-5"><h2>{{userProfile.matchesWon}}</h2></div>
               </div>
@@ -31,7 +31,7 @@
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
+                  <i class="fas fa-fw fa-thumbs-up"></i>
                 </div>
                 <div class="mr-5"><h2>{{userProfile.tournamentsPlayed}}</h2></div>
               </div>
@@ -45,7 +45,7 @@
             <div class="card text-white bg-success o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
+                  <i class="fas fa-fw fa-users"></i>
                 </div>
                 <div class="mr-2"><h2>{{userProfile.tournamentsWin}}</h2></div>
               </div>
@@ -59,7 +59,7 @@
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
+                  <i class="fas fa-fw fa-bomb"></i>
                 </div>
                 <div class="mr-3"><h2>{{userProfile.eliminations}}</h2></div>
               </div>
@@ -70,12 +70,82 @@
             </div>
           </div>
         </div>
+        <!-- Rank Cards -->
 
+          <div class="row">
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card-body">
+               
+                <div class="mr-5"><p>Starting Rank </p></div>
+                <div class="mr-5"><p>Noob Skin Thumbnails </p></div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <div v-if="userProfile.rank==0" class="card-body-icon">
+                  <i class="fas fa-fw fa-hand-o-down"></i>
+                </div>
+                <span class="float-left">Bush Noob</span>
+              
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+             
+                <div class="mr-5"><p>10 % Increase in Winnings</p></div>
+                <div class="mr-5"><p>Common Thumbnails Unlock</p></div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <div v-if="userProfile.rank==1" class="card-body-icon">
+                  <i class="fas fa-fw fa-hand-o-down"></i>
+                </div>
+                <span class="float-left">Bob the Builder</span>
+                
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-success o-hidden h-100">
+              <div class="card-body">
+               
+                <div class="mr-2"><p>10% Decrease in Entry Fee</p></div>
+                <div class="mr-2"><p>Rare and Epic Skin Thumbnails</p></div>
+
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <div v-if="userProfile.rank==2" class="card-body-icon">
+                  <i class="fas fa-fw fa-hand-o-down"></i>
+                </div>
+                <span class="float-left">Ooga Boga Ops</span>
+              
+              </a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-danger o-hidden h-100">
+              <div class="card-body">
+                
+                <div class="mr-3"><p>One Free Tourney </p></div>
+                <div class="mr-3"><p>10% Increase in Winnings</p></div>
+                <div class="mr-3"><p>Ultra-Rare and Legendary Skin Thumbnails</p></div>
+                <div class="mr-3"><p>Shoutout and Featured Videos</p></div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <div v-if="userProfile.rank==3" class="card-body-icon">
+                  <i class="fas fa-fw fa-hand-o-down"></i>
+                </div>
+                <span class="float-left">Sweaty Boi</span>
+               
+              </a>
+            </div>
+          </div>
+        </div>
         <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header" style="color:black;">
             <i class="fas fa-chart-area"></i>
-            Progress Bar</div>
+            Rank Up Progress</div>
           <div class="card-body" style="color:black;">
             <p> Eliminations </p>
             <div class="progress">

@@ -37,6 +37,12 @@ export default{
             objection = 'Platform ID Too Large Max Characters: 50'
         } else if(userProfile.name.length>50){
             objection = 'Name Too Large Max Characters: 50'
+        } else if(userProfile.discordID.length>50){
+            objection = 'Discord ID Too Large Max Characters: 50'
+        } else if(userProfile.discordID.length < 1){
+            objection = 'Enter a Discord ID'
+        } else if(userProfile.epicID.length>50){
+            objection = 'Epic ID Too Large Max Characters: 50'
         } else if(userProfile.contactNumber.length!=12){
             objection = 'Contact Number Should Be 12 Characters e.g (03##-#######)'
         } else if (!terms){
