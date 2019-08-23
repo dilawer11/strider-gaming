@@ -11,7 +11,8 @@
             <div class="">
                 <div class="row small-margin">
                     <div class="col-md-11">
-                        <p>We would love to hear from you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra laoreet dolor sit amet blandit. Ut suscipit nisl ut risus volutpat malesuada.</p>
+                        <p>We would love to hear from you.</p><br>
+                        <p>Become a part of our community of gamers <a href="https://discord.gg/G3M674t">Discord Link</a></p>
                     </div>
                 </div>
                 <div class="row">
@@ -20,23 +21,22 @@
                         <form id="contactForm" data-toggle="validator">
                             <div class="form-group">
                                 <!-- Name Field -->
-                                <input type="text" id="name" placeholder="Name*" required size="35" data-error="Name is required">
+                                <input v-model="name" type="text" id="name" placeholder="Name*" required size="35" data-error="Name is required">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <!-- Email Field -->
-                                <input type="email" id="email" placeholder="Email*" required size="35" data-error="Email is required">
+                                <input type="email" v-model="email" id="email" placeholder="Email*" required size="35" data-error="Email is required">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <!-- Message Field -->
-                                <textarea id="message" name="message" placeholder="Message*" required data-error="Message cannot be empty"></textarea>
+                                <textarea id="message" v-model="message" name="message" placeholder="Message*" required data-error="Message cannot be empty"></textarea>
                                 <p class="subtle">* required field</p>
                                 <div class="help-block with-errors"></div>
                                 <!-- Submit Button -->
-                                <button type="submit" class="button">SEND MESSAGE</button>
+                                <button @click="messageSubmit" class="button">SEND MESSAGE</button>
                                 <!-- Success Message -->
-                                <div id="msgSubmit" class="text-center hidden"></div>
                             </div>
                         </form>
                     </div>
@@ -44,7 +44,7 @@
                         <h2 class="short-hr-left">OUR DETAILS</h2>
                         <div id="contact-info">
                             <ul>
-                                <li><i class="fa fa-envelope"></i><p>Email: <span class="colored"><a href="mailto:office@example.com">office@example.com</a></span></p></li>
+                                <li><i class="fa fa-envelope"></i><p>Email: <span class="colored"><a href="mailto:stridergaming11@gmail.com">stridergaming11@gmail.com</a></span></p></li>
                                 <li><i class="fa fa-phone"></i><p>Phone: <span class="colored"><a href="tel:+923234443331">+92 (323) 4443331</a></span></p></li>
                                 <li><i class="fa fa-phone"></i><p>Phone: <span class="colored"><a href="tel:+923335393500">+92 (333) 5393500</a></span></p></li>
                             </ul>
@@ -58,8 +58,29 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
 export default {
     name: 'Contact',
+    data(){
+        return {
+            name: null,
+            email: null,
+            message: null,
+        }
+    },
+    methods:{
+        messageSubmit(){
+            db.collection('messages').add({
+                name: this.name,
+                email: this.email,
+                message: this.message,
+            }).then(resp => {
+                alert('We have got you message. Somebody will get back to you soon')
+            }).catch(err => {
+                alert('An Error Occured')
+            })
+        }
+    }
 }
 </script>
 
