@@ -1,5 +1,11 @@
 <template>
-  <div class="home">
+  <div id="strider" class="home">
+      <div id="loader-wrapper">
+        <h1 class="loader-logo"><span class="colored">S</span>TRIDER</h1>
+        <div id="progress"></div>
+        <h3 class="loader-text">LOADING</h3>
+    </div>
+    <div id="particles-js"></div>
     <MainNavbar/>
     <Hero/>
     <Upcoming/>
@@ -78,4 +84,10 @@ export default {
   // },
 }
 </script>
+
+<style scoped lang="scss">
+.home /deep/ {
+  @import "../../public/css/style.css";
+}
+</style>
 

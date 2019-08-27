@@ -1,9 +1,9 @@
 <template>
-      <div id="team" class="large-margin container">
+      <div id="team" class="large-margin container white">
             <a href="team.html"></a><!-- Nav Anchor -->
             <div class="row heading tiny-margin">
                 <div class="col-md-auto">
-                    <h1 class="animation-element slide-down">TOP <span class="colored">PLAYERS</span></h1>
+                    <h1 class="animation-element slide-down white">TOP <span class="colored">PLAYERS</span></h1>
                 </div>
                 <div class="col">
                     <hr class="animation-element extend">
@@ -80,7 +80,7 @@
             </div>
             <div class="row tiny-margin">
                 <div class="col-md-11">
-                    <h2 class="short-hr-left">Highlights and Featured Videos</h2>
+                    <h2 class="short-hr-left white">Highlights and Featured Videos</h2>
                     <p>Top Plays and Featured Videos (Contact if you want your videos featured for free)</p>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 <template>
-      <div id="careers" class='large-margin container'>
+      <div id="careers" class='large-margin container white'>
             <a href="careers.html"></a><!-- Nav Anchor -->
             <div class="row heading tiny-margin">
                 <div class="col-md-auto">
-                    <h1 class="animation-element slide-down">FUTURE <span class="colored">PLANS</span></h1>
+                    <h1 class="animation-element slide-down white">FUTURE <span class="colored">PLANS</span></h1>
                 </div>
                 <div class="col">
                     <hr class="animation-element extend">
@@ -11,7 +11,7 @@
             </div>
             <div class="row medium-margin">
                 <div class="col-md-11">
-                    <h2 class="short-hr-left">WHAT THE FUTURE HOLDS FOR YOU</h2>
+                    <h2 class="short-hr-left white">WHAT THE FUTURE HOLDS FOR YOU</h2>
                     <p>We plan on taking the competitive fortnite in Pakistan to it's limit</p><br>
                 </div>
                 <div class="col-md-4">

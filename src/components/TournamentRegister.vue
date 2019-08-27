@@ -43,7 +43,7 @@
                         </div>
                         <div v-if="feedback" class="p-3 mb-2 bg-danger text-white">{{feedback}}</div>
                         <div v-if="positiveFeedback" class="p-3 mb-2 bg-danger text-white">{{positiveFeedback}}</div>
-                        <button type="submit" class="btn btn-primary">Confirm Register</button>
+                        <button type="submit" class="btn btn-primary colored">Confirm Register</button>
                     </form>
                 </div>
                 <div v-else class="card-body">

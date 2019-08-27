@@ -44,7 +44,6 @@ Primary Color: #E48632;
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500'); /* Raleway Font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans'); /* Open Sans Font */
-@import url(line-icons.css);
 @font-face {
     font-family: 'Anurati';
     src: url('../fonts/Anurati-Regular.otf');
@@ -55,6 +54,15 @@ Primary Color: #E48632;
 .colored {
     color: #E48632;
 }
+.white{
+    color: #FFF;
+}
+.white h1{
+    font-size: 2.25rem; /* 36px */
+    font-family: Anurati, sans-serif;
+    letter-spacing: 5px;
+}
+
 /* -Link Styling- */
 a {
     color: #F39C12;
@@ -94,8 +102,9 @@ html, body {
     padding-right: 0;
 }
 /* -Text Styling */
-h1,h2,h3,h4,h5,h6 {
-	font-family: Raleway, sans-serif;
+.h1,h2,h3,h4,h5,h6 {
+    font-family: Raleway, sans-serif;
+   
 }
 h1 {
     font-size: 2.25rem; /* 36px */
@@ -205,7 +214,7 @@ hr {
 input {
     height: 45px;
     padding-left: 10px;
-    border: 1px solid #D4D4D4 !important;
+    border: 1px solid #D4D4D4 
 }
 input:focus {
     border: 1px solid #333;
@@ -217,7 +226,7 @@ textarea {
     max-width: 100%;
 	padding-top: 10px;
 	padding-left: 10px;
-    border: 1px solid #D4D4D4 !important;
+    border: 1px solid #D4D4D4 
 }
 textarea:focus {
     border: 1px solid #333;
@@ -225,7 +234,7 @@ textarea:focus {
 }
 /* -General Button Styles */
 button {
-    outline: none !important;
+    outline: none 
 }
 .button {
 	background: #E48632;
@@ -772,7 +781,7 @@ button {
     width: 40%;
     height: 45px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    border: none !important;
+    border: none ;
     padding: 0 0 0 20px;
     display: inline-block;
     margin-top: 20px;
@@ -793,20 +802,20 @@ button {
     width: 100%;
     color: #FFF;
     background: none;
-    border-bottom: 2px solid #E48632 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+    border-bottom: 2px solid #E48632;
+    border-left: none ;
+    border-right: none ;
+    border-top: none ;
     margin-bottom: 25px;
 }
 #contactForm textarea {
     width: 100%;
     color: #FFF;
     background: none;
-    border-bottom: 2px solid #E48632 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+    border-bottom: 2px solid #E48632 ;
+    border-left: none ;
+    border-right: none ;
+    border-top: none ;
     margin-bottom: 25px;
 }
 #contactForm .button {

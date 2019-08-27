@@ -1,11 +1,11 @@
 <template>
-  <div class="index home">
+  <div class="index home white">
      <div id="hero-section" class="small-margin">
         <div id="particles-web"></div>
         <div class="row hero-unit">
             <div class="container">
                 <div class="hero-caption"><!-- Main Tagline -->
-                    <h1>Gaming <span class="colored">Tournaments</span></h1>
+                    <h1 class="white">Gaming <span class="colored">Tournaments</span></h1>
                 </div>
             </div>
         </div>

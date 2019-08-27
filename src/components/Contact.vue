@@ -1,8 +1,8 @@
 <template>
-      <div id="contact" class="large-margin container">
+      <div id="contact" class="large-margin container white">
             <div class="row heading tiny-margin">
                 <div class="col-md-auto">
-                    <h1 class="animation-element slide-down">GET IN <span class="colored">TOUCH</span></h1>
+                    <h1 class="animation-element slide-down white">GET IN <span class="colored">TOUCH</span></h1>
                 </div>
                 <div class="col">
                     <hr class="animation-element extend">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <h2 class="short-hr-left">LEAVE US A MESSAGE</h2>
+                        <h2 class="short-hr-left white">LEAVE US A MESSAGE</h2>
                         <form id="contactForm" data-toggle="validator">
                             <div class="form-group">
                                 <!-- Name Field -->
@@ -41,7 +41,7 @@
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <h2 class="short-hr-left">OUR DETAILS</h2>
+                        <h2 class="short-hr-left white">OUR DETAILS</h2>
                         <div id="contact-info">
                             <ul>
                                 <li><i class="fa fa-envelope"></i><p>Email: <span class="colored"><a href="mailto:stridergaming11@gmail.com">stridergaming11@gmail.com</a></span></p></li>
@@ -74,10 +74,10 @@ export default {
                 name: this.name,
                 email: this.email,
                 message: this.message,
-            }).then(resp => {
-                alert('We have got you message. Somebody will get back to you soon')
+            }).then(()=> {
+                alert('We have got your message. Somebody will get back to you soon')
             }).catch(err => {
-                alert('An Error Occured')
+                alert(err.message)
             })
         }
     }

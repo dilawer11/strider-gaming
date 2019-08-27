@@ -3,7 +3,7 @@
         <div id="footer"> 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 white">
                         <p id="copyright">&copy; Dilawer Ahmed <span id="year"> </span></p><!-- Copyright Text -->
                         <ul class="social-links"> <!-- Social Media Icons -->
                             <li><a href="https://www.facebook.com/dilawer11"><i class="fa fa-facebook fa-lg icon-social"></i></a></li>

@@ -1,9 +1,9 @@
 <template>
-     <div id="games" class="large-margin container">
+     <div id="games" class="large-margin container white">
             <a href="games.html"></a><!-- Nav Anchor -->
             <div class="row heading tiny-margin">
                 <div class="col-md-auto">
-                    <h1 class="animation-element slide-down">UPCOMING <span class="colored">TOURNAMENTS</span></h1>
+                    <h1 class="animation-element slide-down white">UPCOMING <span class="colored">TOURNAMENTS</span></h1>
                 </div>
                 <div class="col">
                     <hr class="animation-element extend">
@@ -24,7 +24,7 @@
             </div>
             <div class="games-portfolio ">
                 <!-- Game Card -->
-                <div v-for="(tournament,i) in upcomingTournaments" :key="i" class="row game-card fortnite">
+                <div v-for="(tournament,i) in upcomingTournaments" :key="i" class="row game-card fortnite white">
                     <div class="col-lg-12 col-xl-5 game-card-left">
                         <a :href="tournament.thumbnail" data-lightbox="screenshots_aurora">
                             <div class="overlay">
@@ -40,7 +40,7 @@
                         <a href="images/game1.2.jpg" data-lightbox="screenshots_aurora"></a> -->
                     </div>
                     <div class="col-lg-12 col-xl-7 game-card-right">
-                        <h2 class="short-hr-left">{{tournament.name}}</h2>
+                        <h2 class="short-hr-left white">{{tournament.name}}</h2>
                         <p class="tags"><span class="subtle">{{tournament.game}}</span> </p>
                         <p class="game-description">Classic Fortnite Friday. 2 teams of 2 people each join a squad match and highest total team elimination wins. First match will begin on 5pm sharp </p>
                         <div class="steam-btn">
@@ -70,7 +70,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title" id="aurora">TOURNAMENT REGISTER</h1>
+                                    <h1 class="modal-title white" id="aurora">TOURNAMENT REGISTER</h1>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
