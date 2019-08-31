@@ -2,23 +2,23 @@
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
     <side-bar
       :background-color="sidebarBackground"
-      short-title="Argon"
-      title="Argon"
+      short-title="Strider Gaming"
+      title="Strider Gaming"
     >
       <template slot="links">
         <sidebar-item
           :link="{
             name: 'Dashboard',
-            icon: 'ni ni-tv-2 text-primary',
+            icon: 'ni ni-tv-2 text-warning',
             path: '/dashboard'
           }"
         />
 
        
-        <sidebar-item :link="{name: 'User Profile', icon: 'ni ni-single-02 text-yellow', path: '/profile'}"/>
-        <sidebar-item :link="{name: 'Tables', icon: 'ni ni-bullet-list-67 text-red', path: '/tables'}"/>
-        <!-- <sidebar-item :link="{name: 'Login', icon: 'ni ni-key-25 text-info', path: '/login'}"/>
-        <sidebar-item :link="{name: 'Register', icon: 'ni ni-circle-08 text-pink', path: '/register'}"/> -->
+        <sidebar-item :link="{name: 'User Profile', icon: 'ni ni-single-02 text-warning', path: '/profile'}"/>
+        <sidebar-item :link="{name: 'Tables', icon: 'ni ni-bullet-list-67 text-warning', path: '/tables'}"/>
+        <sidebar-item :link="{name: 'Add Game', icon: 'ni ni-key-25 text-warning', path: '/addgame'}"/>
+        <!--<sidebar-item :link="{name: 'Register', icon: 'ni ni-circle-08 text-pink', path: '/register'}"/> -->
 
       </template>
     </side-bar>
@@ -48,7 +48,7 @@
     },
     data() {
       return {
-        sidebarBackground: 'vue' //vue|blue|orange|green|red|primary
+        sidebarBackground: 'orange' //vue|blue|orange|green|red|primary
       };
     },
     methods: {

@@ -9,11 +9,11 @@
                     <div class="btn-wrapper text-center">
                         <a href="#" class="btn btn-neutral btn-icon">
                             <span class="btn-inner--icon"><img src="img/icons/common/github.svg"></span>
-                            <span class="btn-inner--text">Github</span>
+                            <span class="btn-inner--text text-warning">Github</span>
                         </a>
                         <a href="#" class="btn btn-neutral btn-icon">
                             <span class="btn-inner--icon"><img src="img/icons/common/google.svg"></span>
-                            <span class="btn-inner--text">Google</span>
+                            <span class="btn-inner--text text-warning">Google</span>
                         </a>
                     </div>
                 </div>
@@ -34,17 +34,23 @@
                                     addon-left-icon="ni ni-email-83"
                                     v-model="model.email">
                         </base-input>
-
-                        <base-input class="input-group-alternative"
+                        <base-input class="input-group-alternative mb-2"
                                     placeholder="Password"
                                     type="password"
                                     addon-left-icon="ni ni-lock-circle-open"
                                     v-model="model.password">
                         </base-input>
 
-                        <div class="text-muted font-italic">
+                        <base-input class="input-group-alternative"
+                                    placeholder="Confirm Password"
+                                    type="password"
+                                    addon-left-icon="ni ni-lock-circle-open"
+                                    v-model="model.confirmPassword">
+                        </base-input>
+
+                        <!-- <div class="text-muted font-italic">
                             <small>password strength: <span class="text-success font-weight-700">strong</span></small>
-                        </div>
+                        </div> -->
 
                         <div class="row my-4">
                             <div class="col-12">
@@ -54,7 +60,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <base-button type="primary" class="my-4">Create account</base-button>
+                            <base-button type="primary btn-warning" class="my-4">Create account</base-button>
                         </div>
                     </form>
                 </div>
@@ -82,7 +88,8 @@
         model: {
           name: '',
           email: '',
-          password: ''
+          password: '',
+          confirmPassword: '',
         }
       }
     }

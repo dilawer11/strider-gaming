@@ -29,7 +29,7 @@ export default {
     },
     type: {
       type: String,
-      default: "default",
+      default: "primary",
       description: "Button type (e,g primary, danger etc)"
     },
     size: {

@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentDate : new Date(),
-    topPlayers:{mostEliminations: 'EvE DeEleven', mostTournamentWins: 'TackledMonkey2', mostMatchesWon: 'Dr. Snipes', mostPoints:'NP Spam'},
+    topPlayers:{mostEliminations: 'FaTe_PinzeR & FaTe_Weezyy', mostTournamentWins: 'EvE Oxcy & P4PA ON 144Hz', mostMatchesWon: 'EvE Oxcy & P4PA ON 144Hz', mostPoints:'Undecided'},
     users : ['a','b','c','d'],
     // userProfile: {
     //   name: 'Dilawer Ahmed',

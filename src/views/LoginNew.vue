@@ -33,11 +33,11 @@
                                         v-model="model.password">
                             </base-input>
 
-                            <base-checkbox class="custom-control-alternative">
+                            <!-- <base-checkbox class="custom-control-alternative">
                                 <span class="text-muted">Remember me</span>
-                            </base-checkbox>
+                            </base-checkbox> -->
                             <div class="text-center">
-                                <base-button type="primary" class="my-4">Sign in</base-button>
+                                <base-button type="primary btn-warning" class="my-4">Sign in</base-button>
                             </div>
                         </form>
                     </div>
@@ -60,7 +60,7 @@
       return {
         model: {
           email: '',
-          password: ''
+          password: '',
         }
       }
     }
