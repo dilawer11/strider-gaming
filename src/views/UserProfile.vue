@@ -96,7 +96,7 @@
                                                         label="Name"
                                                         placeholder="Your Name"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.username"
+                                                        v-model="model.name"
                                             />
                                         </div>
                                         <div class="col-lg-6">
@@ -114,7 +114,7 @@
                                                         label="First name"
                                                         placeholder="First name"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.firstName"
+                                                        v-model="model.f"
                                             />
                                         </div>
                                         <div class="col-lg-6">
@@ -205,7 +205,7 @@
         model: {
           name: '',
           email: '',
-    
+          
           address: '',
           city: '',
           country: '',

@@ -2,15 +2,37 @@
   <div class="index home white">
      <div id="hero-section" class="small-margin">
         <div id="particles-web"></div>
+     
         <div class="row hero-unit">
             <div class="container">
+       
                 <div class="hero-caption"><!-- Main Tagline -->
                     <h1 class="white">Gaming <span class="colored">Tournaments</span></h1>
+      
                 </div>
             </div>
+     
         </div>
+     
     </div><!-- Hero Section End -->
-    
+          <!-- <vue-particles
+        color="#dedede"
+        :particleOpacity="0.7"
+        :particlesNumber="80"
+        shapeType="circle"
+        :particleSize="4"
+        linesColor="#dedede"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+      >
+      </vue-particles> -->
     <!-- /// Main Container /// -->
     <div class="container">
         <!-- /// ABOUT SECTION /// -->
@@ -43,8 +65,12 @@
 </template>
 
 <script>
+
 export default {
     name: 'Hero',
+    mounted(){
+        // particle.window.particlesJS.load()
+    }
 }
 </script>
 

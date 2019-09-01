@@ -21,10 +21,12 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import ArgonDashboard from './plugins/argon-dashboard'
+import VueParticles from 'vue-particles'
 
 // Vue.use(Vuetify)
 Vue.config.productionTip = false
 Vue.use(ArgonDashboard)
+Vue.use(VueParticles)
 
 new Vue({
   router,

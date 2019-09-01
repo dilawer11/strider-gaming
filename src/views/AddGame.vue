@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
                         <h1 class="display-2 text-white">Hello Jesse</h1>
-                        <p class="text-white mt-0 mb-5">This is your add game page. You can add the games you play here and update your info to register for tournaments</p>
+                        <p class="text-white mt-0 mb-5">This is your add game page. You can add the games you play here and update your info to register for tournaments.</p>
                         <!-- <a href="#!" class="btn btn-dark">Edit profile</a> -->
                     </div>
                 </div>
@@ -124,8 +124,7 @@
     },
     methods:{
         addNewGame(){
-            console.log(this.gameModel.Fortnite.EpicID);
-            console.log(this.gameModel.Fortnite.Platform);
+        
         },
         selectGame(){
 

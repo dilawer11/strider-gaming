@@ -80,12 +80,12 @@ const router = new Router({
         {
           path: '/login',
           name: 'login',
-          component: () => import(/* webpackChunkName: "demo" */ './views/LoginNew.vue')
+          component: () => import(/* webpackChunkName: "demo" */ './views/Login.vue')
         },
         {
           path: '/register',
           name: 'register',
-          component: () => import(/* webpackChunkName: "demo" */ './views/RegisterNew.vue')
+          component: () => import(/* webpackChunkName: "demo" */ './views/Register.vue')
         }
       ]
     }

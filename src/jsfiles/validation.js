@@ -1,4 +1,4 @@
-import { platform } from "os";
+
 
 // fill this file with validation
 export default{
@@ -27,32 +27,42 @@ export default{
             objection = 'Something went wrong please contact on the numbers provided'
         }
         var emailRegex = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
-        if(userProfile.name.length<4){
-            objection = 'Name Must Be Atleast 4 Characters Long'
-        } else if(!emailRegex.test(userProfile.email)){
-            objection = 'Incorrect Email Type Entered'
-        } 
-        //Length Checks
-        if(userProfile.platformID!=null && userProfile.platformID.length>50){
-            objection = 'Platform ID Too Large Max Characters: 50'
+        var discordRegex = /^.*#[0-9]{4}$/
+        //NAME TESTS
+        if(!userProfile.name){
+            objection = 'Please Enter a Name'
+        } else if(userProfile.name.length<=4){
+            objection = 'Name Must Be Longer Than 4 Characters'
         } else if(userProfile.name.length>50){
-            objection = 'Name Too Large Max Characters: 50'
-        } else if(userProfile.discordID.length>50){
-            objection = 'Discord ID Too Large Max Characters: 50'
-        } else if(userProfile.discordID.length < 1){
-            objection = 'Enter a Discord ID'
-        } else if(userProfile.epicID.length>50){
-            objection = 'Epic ID Too Large Max Characters: 50'
-        } else if(userProfile.contactNumber.length!=12){
-            objection = 'Contact Number Should Be 12 Characters e.g (03##-#######)'
-        } else if (!terms){
-            objection = 'Please Check The Agree To Terms Box'
-        } else if (password.length<6){
-            objection = 'Password Must Be Atleast 6 Characters'
-        } else if (password != confirmPassword){
-            objection = "Passwords Don't Match" 
+            objection = 'Name Must Be Smaller Than 50 Characters'
         }
-        return objection
+        //EMAIL TESTS
+        if(!userProfile.email){
+            objection = 'Please Enter an Email'
+        } else if(!userProfile.email.match(emailRegex)){
+            objection = 'Please Enter a Correct Email Address'
+        } else if(userProfile.email.length>=100){
+            objection = 'Email Must be Smaller than 100 Characters'
+        }
+        //DISCORD ID TESTS
+        if(userProfile.discordID){
+            if(!userProfile.discordID.match(discordRegex)){
+                objection = 'Please Enter A Correct Discord ID e.g abc#1234'
+            } else if(userProfile.discordID.length >= 100){
+                objection = 'Discord ID Must Be Smaller Than 100 Characters'
+            }
+        }
+        //Check Terms Are Selected
+        if(!terms){
+            objection = "Please Read And Agree to Terms"
+        }
+        //Check Password Match
+        if(password!=confirmPassword){
+            objection = "Your Password Don't Match"
+        } else if(password.length<6){
+            objection = "Passwords Must Be Atleast 6 Characters"
+        }
+        return objection;
     }
 
 }
