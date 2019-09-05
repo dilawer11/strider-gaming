@@ -21,8 +21,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#team">Top Players</a>
                         </li>
-                        <li v-if="userProfile.epicID" class="nav-item">
-                            <router-link to="/dashboard"><span class="nav-link">{{userProfile.epicID}}</span></router-link>
+                        <li v-if="userProfile" class="nav-item">
+                            <router-link to="/dashboard"><span class="nav-link">{{userProfile.name}}</span></router-link>
                         </li>
                          <li v-else class="nav-item">
                             <router-link to="/dashboard"><span class="nav-link">Login</span></router-link>

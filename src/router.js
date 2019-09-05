@@ -41,6 +41,9 @@ const router = new Router({
       path: '/dashboard',
       redirect: 'dashboard',
       component: DashboardLayout,
+      meta:{
+        requiresAuth:true
+      },
       children: [
         {
           path: '/dashboard',
@@ -48,7 +51,8 @@ const router = new Router({
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "demo" */ './views/Dashboard.vue')
+          component: () => import(/* webpackChunkName: "demo" */ './views/Dashboard.vue'),
+         
         },
         {
           path: '/icons',
@@ -58,17 +62,20 @@ const router = new Router({
         {
           path: '/profile',
           name: 'profile',
-          component: () => import(/* webpackChunkName: "demo" */ './views/UserProfile.vue')
+          component: () => import(/* webpackChunkName: "demo" */ './views/UserProfile.vue'),
+         
         },
         {
           path: '/addgame',
           name: 'addgame',
-          component: () => import(/* webpackChunkName: "demo" */ './views/AddGame.vue')
+          component: () => import(/* webpackChunkName: "demo" */ './views/AddGame.vue'),
+         
         },
         {
-          path: '/tables',
-          name: 'tables',
-          component: () => import(/* webpackChunkName: "demo" */ './views/Tables.vue')
+          path: '/tournaments',
+          name: 'tournaments',
+          component: () => import(/* webpackChunkName: "demo" */ './views/Tournaments.vue'),
+          
         }
       ]
     },

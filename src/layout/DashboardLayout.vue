@@ -16,7 +16,7 @@
 
        
         <sidebar-item :link="{name: 'User Profile', icon: 'ni ni-single-02 text-warning', path: '/profile'}"/>
-        <sidebar-item :link="{name: 'Tables', icon: 'ni ni-bullet-list-67 text-warning', path: '/tables'}"/>
+        <sidebar-item :link="{name: 'Tournaments', icon: 'ni ni-bullet-list-67 text-warning', path: '/tournaments'}"/>
         <sidebar-item :link="{name: 'Add Game', icon: 'ni ni-key-25 text-warning', path: '/addgame'}"/>
         <!--<sidebar-item :link="{name: 'Register', icon: 'ni ni-circle-08 text-pink', path: '/register'}"/> -->
 
@@ -39,6 +39,7 @@
   import DashboardNavbar from './DashboardNavbar.vue';
   import ContentFooter from './ContentFooter.vue';
   import { FadeTransition } from 'vue2-transitions';
+  import store from '../store'
 
   export default {
     components: {
@@ -57,7 +58,13 @@
           this.$sidebar.displaySidebar(false);
         }
       }
-    }
+    },
+    beforeRouteEnter(to,from,next){
+      if(store.state.userProfile){
+        next()
+      }
+    },
+ 
   };
 </script>
 <style lang="scss">

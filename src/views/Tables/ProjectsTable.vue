@@ -22,11 +22,12 @@
                   tbody-classes="list"
                   :data="tableData">
         <template slot="columns">
-          <th>Project</th>
-          <th>Budget</th>
-          <th>Status</th>
-          <th>Users</th>
-          <th>Completion</th>
+          <th>Name</th>
+          <th>Game</th>
+          <th>Prize Pool(PKR)</th>
+          <th>Registration Status</th>
+          
+          <th>Date</th>
           <th></th>
         </template>
 
@@ -41,17 +42,8 @@
               </div>
             </div>
           </th>
-          <td class="budget">
-            {{row.budget}}
-          </td>
           <td>
-            <badge class="badge-dot mr-4" :type="row.statusType">
-              <i :class="`bg-${row.statusType}`"></i>
-              <span class="status">{{row.status}}</span>
-            </badge>
-          </td>
-          <td>
-            <div class="avatar-group">
+            <!-- <div class="avatar-group">
               <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
                 <img alt="Image placeholder" src="img/theme/team-1-800x800.jpg">
               </a>
@@ -64,8 +56,19 @@
               <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
                 <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
               </a>
-            </div>
+            </div> -->
+            {{row.game}}
           </td>
+          <td class="budget">
+            {{row.budget}}
+          </td>
+          <td>
+            <badge class="badge-dot mr-4" :type="statusType(row.status)">
+              <i :class="`bg-${statusType(row.status)}`"></i>
+              <span class="status">{{row.status}}</span>
+            </badge>
+          </td>
+  
 
           <td>
             <div class="d-flex align-items-center">
@@ -123,22 +126,21 @@
             title: 'Argon Design System',
             budget: '$2500 USD',
             status: 'pending',
-            statusType: 'warning',
-            completion: 60
+            completion: 60,
+            game: 'Fortnite'
           },
           {
             img: 'img/theme/angular.jpg',
             title: 'Angular Now UI Kit PRO',
             budget: '$1800 USD',
             status: 'completed',
-            statusType: 'success',
             completion: 100
           },
           {
             img: 'img/theme/sketch.jpg',
             title: 'Black Dashboard',
             budget: '$3150 USD',
-            status: 'delayed',
+            status: 'pending',
             statusType: 'danger',
             completion: 72
           },
@@ -146,19 +148,28 @@
             img: 'img/theme/react.jpg',
             title: 'React Material Dashboard',
             budget: '$4400 USD',
-            status: 'on schedule',
-            statusType: 'info',
+            status: 'completed',
             completion: 90
           },
           {
             img: 'img/theme/vue.jpg',
             title: 'Vue Paper UI Kit PRO',
             budget: '$2200 USD',
-            status: 'completed',
-            statusType: 'success',
+            status: 'processing',
             completion: 100
           }
         ]
+      }
+    },
+    methods:{
+      statusType(status){
+        if(status == 'pending'){
+          return 'warning'
+        } else if(status == 'completed'){
+          return 'success'
+        } else if(status == 'processing'){
+          return 'info'
+        }
       }
     }
   }

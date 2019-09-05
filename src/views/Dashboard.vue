@@ -4,9 +4,9 @@
             <!-- Card stats -->
             <div class="row">
                 <div class="col-xl-3 col-lg-6">
-                    <stats-card title="Eliminations"
+                    <stats-card title="Points"
                                 type="gradient-red"
-                                sub-title="350,897"
+                                :sub-title="userProfile.points"
                                 icon="ni ni-active-40"
                                 class="mb-4 mb-xl-0"
                     >
@@ -20,7 +20,7 @@
                 <div class="col-xl-3 col-lg-6">
                     <stats-card title="Matches Won"
                                 type="gradient-orange"
-                                sub-title="2,356"
+                                :sub-title="userProfile.matchesWon"
                                 icon="ni ni-chart-pie-35"
                                 class="mb-4 mb-xl-0"
                     >
@@ -34,7 +34,7 @@
                 <div class="col-xl-3 col-lg-6">
                     <stats-card title="Tournaments Won"
                                 type="gradient-green"
-                                sub-title="924"
+                                :sub-title="userProfile.tournamentsWin"
                                 icon="ni ni-trophy"
                                 class="mb-4 mb-xl-0"
                     >
@@ -49,7 +49,7 @@
                 <div class="col-xl-3 col-lg-6">
                     <stats-card title="Tournaments Played"
                                 type="gradient-info"
-                                sub-title="49,65%"
+                                :sub-title="userProfile.tournamentsPlayed"
                                 icon="ni ni-chart-bar-32"
                                 class="mb-4 mb-xl-0"
                     >
@@ -107,7 +107,7 @@
                     </card>
                 </div>
 
-                <div class="col-xl-4">
+                <div class="col-xl-4" >
                     <card header-classes="bg-transparent">
                         <div slot="header" class="row align-items-center">
                             <div class="col">
@@ -116,7 +116,7 @@
                             </div>
                         </div>
 
-                        <bar-chart
+                        <bar-chart 
                                 :height="350"
                                 ref="barChart"
                                 :chart-data="redBarChart.chartData"
@@ -151,6 +151,7 @@
   // Tables
   import SocialTrafficTable from './Dashboard/SocialTrafficTable';
   import PageVisitsTable from './Dashboard/PageVisitsTable';
+  import { mapState, mapGetters } from 'vuex'
 
   export default {
     components: {
@@ -175,10 +176,10 @@
         },
         redBarChart: {
           chartData: {
-            labels: ['Eliminations', 'Matches Won', 'Tournaments Won', 'Tournaments Played'],
+            labels: ['Points', 'Matches Won', 'Tournaments Won', 'Tournaments Played'],
             datasets: [{
               label: 'Percentage',
-              data: [25, 20, 30, 24,100]
+              data: [0,0,0,0,100]
             }]
           }
         }
@@ -197,11 +198,32 @@
         };
         this.bigLineChart.chartData = chartData;
         this.bigLineChart.activeIndex = index;
+      },
+      initRankChart(data){
+        let temp = data;
+        data.push(100);
+        let chartData = {
+            labels: ['Points', 'Matches Won', 'Tournaments Won', 'Tournaments Played'],
+            datasets: [{
+              label: 'Percentage',
+              data: temp
+            }]
+        }
+      this.redBarChart.chartData = chartData
       }
     },
     mounted() {
       this.initBigChart(0);
+      this.initRankChart(this.rankProgress)
+    },
+    computed:{
+      ...mapState([
+        'userProfile'
+      ]),
+      ...mapGetters([
+        'rankProgress'
+      ])
     }
-  };
+  }
 </script>
 <style></style>

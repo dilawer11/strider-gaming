@@ -3,39 +3,41 @@
     <div class="card-header border-0">
       <div class="row align-items-center">
         <div class="col">
-          <h3 class="mb-0">Page visits</h3>
+          <h3 class="mb-0">Past Tournaments</h3>
         </div>
         <div class="col text-right">
-          <a href="#!" class="btn btn-sm btn-primary">See all</a>
+          
         </div>
       </div>
     </div>
 
     <div class="table-responsive">
       <base-table thead-classes="thead-light"
-                  :data="tableData">
+                  :data="tournamentsDone">
         <template slot="columns">
-          <th>Page name</th>
-          <th>Visitors</th>
-          <th>Unique users</th>
-          <th>Bounce rate</th>
+          <th>Name</th>
+          <th>Points</th>
+          <th>Matches Won</th>
+          <th>Placement</th>
+          <th>Winnings</th>
+         
         </template>
 
         <template slot-scope="{row}">
           <th scope="row">
-            {{row.page}}
+            {{row.name}}
           </th>
           <td>
-            {{row.visitors}}
+            {{row.stats.points}}
           </td>
           <td>
-            {{row.unique}}
+            {{row.stats.matchesWon}}
           </td>
           <td>
-            <i class="fas fa-arrow-up text-success mr-3"
-               :class="row.bounceRateDirection === 'up' ? 'text-success': 'text-danger'">
-            </i>
-            {{row.bounceRate}}
+            {{row.stats.placement}}
+          </td>
+          <td>
+            {{row.stats.winnings}}
           </td>
         </template>
 
@@ -45,48 +47,18 @@
   </div>
 </template>
 <script>
+import {mapGetters } from 'vuex'
   export default {
-    name: 'page-visits-table',
+    name: 'past-tournaments-table',
     data() {
       return {
-        tableData: [
-          {
-            page: '/argon/',
-            visitors: '4,569',
-            unique: '340',
-            bounceRate: '46,53%',
-            bounceRateDirection: 'up'
-          },
-          {
-            page: '/argon/index.html',
-            visitors: '3,985',
-            unique: '319',
-            bounceRate: '46,53%',
-            bounceRateDirection: 'down'
-          },
-          {
-            page: '/argon/charts.html',
-            visitors: '3,513',
-            unique: '294',
-            bounceRate: '36,49%',
-            bounceRateDirection: 'down'
-          },
-          {
-            page: '/argon/tables.html',
-            visitors: '2,050',
-            unique: '147',
-            bounceRate: '50,87%',
-            bounceRateDirection: 'up'
-          },
-          {
-            page: '/argon/profile.html',
-            visitors: '1,795',
-            unique: '190',
-            bounceRate: '46,53%',
-            bounceRateDirection: 'down'
-          }
-        ]
+        
       }
+    },
+    computed:{
+      ...mapGetters([
+        'tournamentsDone'
+      ])
     }
   }
 </script>

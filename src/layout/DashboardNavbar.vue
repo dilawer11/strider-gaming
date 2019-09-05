@@ -17,10 +17,10 @@
                 <base-dropdown class="nav-link pr-0">
                     <div class="media align-items-center" slot="title">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
+                  <img alt="" :src="userProfile.thumbnail">
                 </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                            <span class="mb-0 text-sm  font-weight-bold">{{userProfile.name}}</span>
                         </div>
                     </div>
 
@@ -32,9 +32,9 @@
                             <i class="ni ni-single-02"></i>
                             <span>My profile</span>
                         </router-link>
-                        <router-link to="/profile" class="dropdown-item">
+                        <router-link to="/addgame" class="dropdown-item">
                             <i class="ni ni-settings-gear-65"></i>
-                            <span>Settings</span>
+                            <span>Add Game</span>
                         </router-link>
                         <!-- <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-calendar-grid-58"></i>
@@ -45,10 +45,10 @@
                             <span>Support</span>
                         </router-link> -->
                         <div class="dropdown-divider"></div>
-                        <router-link to="/profile" class="dropdown-item">
+                        <span @click="logout()" class="dropdown-item">
                             <i class="ni ni-user-run"></i>
                             <span>Logout</span>
-                        </router-link>
+                        </span>
                     </template>
                 </base-dropdown>
             </li>
@@ -56,6 +56,8 @@
     </base-nav>
 </template>
 <script>
+import { mapState } from 'vuex'
+import firebase from 'firebase/app'
   export default {
     data() {
       return {
@@ -73,7 +75,17 @@
       },
       toggleMenu() {
         this.showMenu = !this.showMenu;
+      },
+      logout(){
+        firebase.auth().signOut().then(()=>{
+          this.$router.push({path:'/'})
+        })
       }
+    },
+    computed:{
+      ...mapState([
+        'userProfile'
+      ])
     }
   };
 </script>

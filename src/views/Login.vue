@@ -19,7 +19,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Or sign in with credentials</small>
                         </div>
-                        <form role="form">
+                        <form role="form" @submit.prevent="loginWithEmailandPassword">
                             <base-input class="input-group-alternative mb-3"
                                         placeholder="Email"
                                         addon-left-icon="ni ni-email-83"
@@ -40,7 +40,7 @@
                             <p class="text-white" >{{feedback}}</p> 
                             </div>
                             <div class="text-center">
-                                <base-button @click="loginWithEmailandPassword()" type="primary btn-warning" class="my-4">Sign in</base-button>
+                                <base-button @click="loginWithEmailandPassword()" type="primary btn-warning submit" class="my-4">Sign in</base-button>
                             </div>
                         </form>
                     </div>
@@ -58,6 +58,7 @@
 </template>
 <script>
 import db from '@/firebase/init'
+import accountCreation from '@/jsfiles/accountCreation.js'
 import firebase from 'firebase/app'
   export default {
     name: 'login',
@@ -93,13 +94,13 @@ import firebase from 'firebase/app'
                         var email = result.additionalUserInfo.profile.email;
                         var name = result.additionalUserInfo.profile.name;
                         var profilePicture = result.additionalUserInfo.profile.picture;
-                        db.collection('users').doc(result.user.uid).set({
-                            name: name,
-                            email: email,
-                            thumbnail: profilePicture,
+                        let userProfile = accountCreation.createNewUserProfile(name,email,null,profilePicture);
+                        db.collection('users').doc(result.user.uid).set(userProfile).then(() => {
+                            this.$router.push({name: 'dashboard'})
                         })
-                        //TODO: Set User Profile 
-                    } 
+                    } else{
+                        this.$router.push({name:'dashboard'})
+                    }
                     this.$router.push({name:'dashboard'})
                 }).catch(err=>{
                     this.feedback = err.message;
@@ -117,15 +118,16 @@ import firebase from 'firebase/app'
                     if(!doc.exists){
                         var email = result.additionalUserInfo.profile.email;
                         var name = result.additionalUserInfo.profile.name;
-                        var profilePicture = result.additionalUserInfo.profile.picture.data.url
-                        db.collection('users').doc(result.user.uid).set({
-                            name: name,
-                            email: email,
-                            thumbnail: profilePicture,
+                        var profilePicture = result.additionalUserInfo.profile.picture.data.url;
+                        let userProfile = accountCreation.createNewUserProfile(name,email,null,profilePicture);
+                        db.collection('users').doc(result.user.uid).set(userProfile).then(() => {
+                            this.$router.push({name: 'dashboard'})
                         })
-                        //TODO: Set User Profile 
                     }
-                    this.$router.push({name:'dashboard'})
+                    else{
+                        this.$router.push({name:'dashboard'})
+                    }
+                    
                 }).catch(err=>{
                     this.feedback = err.message;
                 })

@@ -4,7 +4,7 @@
         <div class="row h-100">
             <div class="col-sm-12">
                 <div class="card text-center card-block mx-auto">
-                <div v-if="userProfile.epicID" class="card-body">
+                <div v-if="userProfile" class="card-body">
                     
                 
                     <form @submit.prevent="submitRegister()">

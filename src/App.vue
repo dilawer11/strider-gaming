@@ -5,7 +5,7 @@
 </template>
 <script>
 import db from '@/firebase/init'
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations} from 'vuex'
 import firebase from 'firebase/app'
 export default {
   created(){
